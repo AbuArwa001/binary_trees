@@ -31,4 +31,13 @@ void binary_tree_print(const binary_tree_t *);
  * Return:  a pointer to the new node, or NULL on failure
 */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
+/**
+ * binary_tree_insert_left - a function that inserts a
+ *   node as the left-child of another node
+ * @parent: a pointer to the node to insert the lef-child in
+ * @value: the value to store in the new node
+ * Return: return a pointer to the created node  or NULL
+ *          on failure
+*/
+binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
 #endif
