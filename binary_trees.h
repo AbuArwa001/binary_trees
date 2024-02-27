@@ -67,4 +67,11 @@ int binary_tree_is_leaf(const binary_tree_t *node);
  * Return: return 1 if node is leaf otherwise 0
 */
 int binary_tree_is_root(const binary_tree_t *node);
+#include <stdlib.h>
+/**
+ * binary_tree_preorder - goes through binary tree using pre-order
+ * @tree: pointer to the root node of the tree to travers
+ * @func: is a pointer to a function to call for each node
+*/
+void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int));
 #endif
