@@ -101,4 +101,10 @@ size_t binary_tree_height(const binary_tree_t *tree);
  * Return: depth of the node
 */
 size_t binary_tree_depth(const binary_tree_t *tree);
+/**
+ * binary_tree_size - Measurs the size of a binary tree
+ * @tree: A pointer to root node to be measured
+ * Return: size of the tree;
+*/
+size_t binary_tree_size(const binary_tree_t *tree);
 #endif
