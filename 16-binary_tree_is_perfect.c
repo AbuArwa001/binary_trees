@@ -35,5 +35,11 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 
 	left = max_depth(tree->left);
 	right = max_depth(tree->right);
-	return (left - right == 0 && binary_tree_is_full(tree) ? 1 : 0);
+
+	if (left != right)
+	{
+		return (0);
+	}
+
+	return (binary_tree_is_full(tree));
 }
