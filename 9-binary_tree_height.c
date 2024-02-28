@@ -14,8 +14,8 @@ size_t max_depth(const binary_tree_t *tree)
 	}
 	else
 	{
-		int lh = max_depth(tree->left);
-		int rh = max_depth(tree->right);
+		size_t lh = max_depth(tree->left);
+		size_t rh = max_depth(tree->right);
 
 		return (lh > rh ? (lh + 1) : (rh + 1));
 	}
@@ -27,7 +27,13 @@ size_t max_depth(const binary_tree_t *tree)
 */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t height = max_depth(tree);
+	size_t height = 0;
 
+	if (!tree)
+	{
+		return (0);
+	}
+
+	height = max_depth(tree);
 	return (height - 1);
 }
