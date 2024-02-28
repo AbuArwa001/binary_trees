@@ -125,4 +125,10 @@ size_t binary_tree_nodes(const binary_tree_t *tree);
  * Return: Te balance factor
 */
 int binary_tree_balance(const binary_tree_t *tree);
+/**
+ * binary_tree_is_full - checks if a binary tree is full
+ * @tree: a pointer to the root node of the tree to check
+ * Return: Return 1 if true otherwise return 0
+*/
+int binary_tree_is_full(const binary_tree_t *tree);
 #endif
