@@ -1,24 +1,29 @@
 #include "binary_trees.h"
 #include "15-binary_tree_is_full.c"
 /**
- * max_depth - finds the max depth of each subtree
+ * is_perfect - checks if tree is perfect
  * @tree: pointer to node of subtree
+ * @depth: depth of the leftmost subtree
+ * @level: level of  the tree
  * Return: returns the max_depth
 */
-size_t max_depth(const binary_tree_t *tree)
+int is_perfect(const binary_tree_t *tree, int depth, int level)
 {
-	if (!tree)
-	{
-		return (0);
-	}
-	else
-	{
-		size_t lh = max_depth(tree->left);
-		size_t rh = max_depth(tree->right);
 
-		return (lh > rh ? (lh + 1) : (rh + 1));
-	}
+	if (tree == NULL)
+		return (1);
+
+	if (!tree->left  && !tree->right)
+		return ((depth == level + 1) ? 1 : 0);
+
+
+	if (!tree->left || !tree->right)
+		return (0);
+
+	return (is_perfect(tree->left, depth, level + 1) &&
+	    is_perfect(tree->right, depth, level + 1));
 }
+
 /**
  * binary_tree_is_perfect - checks if a binary tree is perfect
  * @tree:  pointer to the root node of the tree to check
@@ -26,20 +31,14 @@ size_t max_depth(const binary_tree_t *tree)
 */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int left = 0, right = 0;
+	int depth = 0;
+	const binary_tree_t *node = tree;
 
-	if (!tree)
+	while (node != NULL)
 	{
-		return (0);
+		depth++;
+		node = node->left;
 	}
 
-	left = max_depth(tree->left);
-	right = max_depth(tree->right);
-
-	if (left != right)
-	{
-		return (0);
-	}
-
-	return (binary_tree_is_full(tree));
+	return (is_perfect(tree, depth, 0));
 }
