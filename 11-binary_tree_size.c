@@ -23,7 +23,7 @@ size_t tree_size(const binary_tree_t *tree)
 
 	if (tree->right)
 	{
-		size_t right = tree_size(tree->left);
+		size_t right = tree_size(tree->right);
 
 		right += 1;
 		sum += right;
