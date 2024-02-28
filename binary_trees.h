@@ -119,4 +119,10 @@ size_t binary_tree_leaves(const binary_tree_t *tree);
  * Return: returns number of nodes with children
 */
 size_t binary_tree_nodes(const binary_tree_t *tree);
+/**
+ * binary_tree_balance - Measurs the balance factor of binary tree
+ * @tree: pointer to the root node of the tree
+ * Return: Te balance factor
+*/
+int binary_tree_balance(const binary_tree_t *tree);
 #endif
