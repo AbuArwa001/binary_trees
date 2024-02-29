@@ -73,9 +73,8 @@ Write a function that creates a binary tree node
 ## Installation
 
 To use this project, you need to clone the repository and compile the files with gcc.
-
+git clone [5](https://github.com/AbuArwa001/binary_trees.git)
 ```bash
-git clone [5](https://github.com/yourusername/yourproject.git)
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o binary_trees
 ```
 ### Usage
