@@ -13,11 +13,11 @@ typedef struct queue_s
 } queue_t;
 
 /**
- * struct - Queue structure
+ * struct Queue_u - Queue structure
  * @front: Pointer to the front of the queue
  * @rear: Pointer to the rear of the queue
  */
-typedef struct
+typedef struct Queue_u
 {
 	queue_t *front;
 	queue_t *rear;
