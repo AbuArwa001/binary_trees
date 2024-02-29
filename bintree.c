@@ -34,7 +34,7 @@ int isEmpty(Queue *queue)
  * @queue: Pointer to the queue
  * @node: Pointer to the binary tree node to enqueue
  */
-void enqueue(Queue *queue, struct binary_tree_s *node)
+void enqueue(Queue *queue, binary_tree_t *node)
 {
 	queue_t *newNode = malloc(sizeof(queue_t));
 
