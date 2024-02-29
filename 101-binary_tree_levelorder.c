@@ -1,6 +1,4 @@
 #include "binary_trees.h"
-
-
 /**
  * binary_tree_levelorder -  the lowest common ancestor of two nodes
  * @tree: is a pointer to the root node of the tree to traverse
