@@ -33,6 +33,11 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 {
 	size_t fst = 0, scnd = 0;
 
+	if (!first || !second)
+	{
+		return (NULL);
+	}
+
 	fst = binary_tree_depth(first);
 	scnd = binary_tree_depth(second);
 
