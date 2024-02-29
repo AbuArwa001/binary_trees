@@ -1,24 +1,6 @@
 #include "binary_trees.h"
 #include "10-binary_tree_depth.c"
-/**
- * node_depth - Calculates the depth of a node from the root.
- * Description: This function iters through the parent pointers of the given
- * node until it reache the root (whr the parent is NULL), counting the depth.
- * @node: A constant pointer to the node to calculate depth for.
- * Return: The depth of the node from the root as a size_t.
- */
-size_t node_depth(const binary_tree_t *node)
-{
-	size_t depth = 0;
 
-	while (node != NULL)
-	{
-		depth++;
-		node = node->parent;
-	}
-
-	return (depth);
-}
 /**
  * adjust_to_same_depth - Adjusts the deeper node
  *						to the same depth as the other node.
@@ -54,39 +36,18 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 	fst = binary_tree_depth(first);
 	scnd = binary_tree_depth(second);
 
-	if (second->parent == first)
-		return (second->parent);
+/*Adjust the deeper node to the same depth as the other node*/
+	adjust_to_same_depth(&first, &fst, scnd);
+	adjust_to_same_depth(&second, &scnd, fst);
 
-	if (first->parent == second)
-		return (first->parent);
-	if (fst ==  scnd)
+    /* Loop until the nodes are equal or null */
+	while (first && second && first != second)
 	{
-		while (first->parent != second->parent)
-		{
-			first = first->parent;
-			second = second->parent;
-		}
-		return (first->parent);
+		first = first->parent;
+		second = second->parent;
 	}
-	if (fst > scnd)
-	{
-		adjust_to_same_depth(&first, &fst, scnd);
-		while (first->parent != second->parent)
-		{
-			first = first->parent;
-			second = second->parent;
-		}
-		return (first->parent);
-	}
-	else if (scnd > fst)
-	{
-		adjust_to_same_depth(&second, &scnd, fst);
-		while (first->parent != second->parent)
-		{
-			first = first->parent;
-			second = second->parent;
-		}
-		return (first->parent);
-	}
-	return (NULL);
+
+    /* Return the common ancestor or null */
+	return ((binary_tree_t *)first);
 }
+
