@@ -137,4 +137,16 @@ int binary_tree_is_full(const binary_tree_t *tree);
  * Return: returns 1 if true 0 if false
 */
 int binary_tree_is_perfect(const binary_tree_t *tree);
+/**
+ * binary_tree_sibling - finds the sibling of a node
+ * @node:  a pointer to the node to find the sibling
+ * Return:  return a pointer to the sibling node
+*/
+binary_tree_t *binary_tree_sibling(binary_tree_t *node);
+/**
+ * binary_tree_uncle - finds the uncle of a node
+ * @node:  a pointer to the node to find the uncle
+ * Return:  return a pointer to the uncle node
+*/
+binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 #endif
