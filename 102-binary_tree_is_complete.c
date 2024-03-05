@@ -107,39 +107,5 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	queue_t *q = NULL;
-	int flg = -1;
-	Queue_t *fr = malloc(sizeof(Queue_t));
-
-	if (!fr)
-		return (0);
-	fr->front = NULL;
-	fr->rear = NULL;
-	levelOrder(tree,  &q, fr);
-
-	while (fr->rear)
-	{
-
-		binary_tree_t *pr = dequeue(fr);
-
-		if (!pr)
-		{
-			flg = 1;
-		}
-		else
-			if (flg == 1 && pr)
-			{
-				flg = 0;
-				break;
-			}
-	}
-
-	if ((!fr->front && !fr->rear) && flg == -1)
-		return (1);
-	if (flg == 0)
-	{
-		return (0);
-	}
-
 	return (1);
 }
