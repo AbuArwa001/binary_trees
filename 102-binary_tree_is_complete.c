@@ -34,13 +34,13 @@ queue_t *enqueue(const binary_tree_t *tree, queue_t *q, Queue_t *fr)
  */
 binary_tree_t *dequeue(Queue_t *fr)
 {
+	binary_tree_t *data = fr->front->node;
+	queue_t *temp = fr->front;
+
 	if (!fr->front)
 	{
 		return (NULL);
 	}
-
-	binary_tree_t *data = fr->front->node;
-	queue_t *temp = fr->front;
 
 	if (fr->front == fr->rear)
 	{
@@ -104,8 +104,43 @@ void levelOrder(const binary_tree_t *tree,  queue_t **q, Queue_t *fr)
 */
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
+	queue_t *q = NULL;
+	Queue_t *fr = malloc(sizeof(Queue_t));
+	int flg = -1;
+
 	if (!tree)
 		return (0);
 
+
+
+	if (!fr)
+		return (0);
+
+	fr->front = NULL;
+	fr->rear = NULL;
+	levelOrder(tree,  &q, fr);
+
+	while (fr->rear)
+	{
+
+		binary_tree_t *pr = dequeue(fr);
+
+		if (!pr)
+		{
+			flg = 1;
+		}
+		else
+			if (flg == 1 && pr)
+			{
+				flg = 0;
+				break;
+			}
+	}
+	if ((!fr->front && !fr->rear) && flg == -1)
+		return (1);
+	if (flg == 0)
+	{
+		return (0);
+	}
 	return (1);
 }
