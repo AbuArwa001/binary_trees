@@ -1,27 +1,7 @@
 #ifndef BINARY_TREES
 #define BINARY_TREES
 
-/**
- * struct queue_s - Queue structure
- * @node: Pointer to a binary tree node
- * @next: Pointer to the next node in the queue
- */
-typedef struct queue_s
-{
-	struct binary_tree_s *node;
-	struct queue_s *next;
-} queue_t;
 
-/**
- * struct Queue_u - Queue structure
- * @front: Pointer to the front of the queue
- * @rear: Pointer to the rear of the queue
- */
-typedef struct Queue_u
-{
-	queue_t *front;
-	queue_t *rear;
-} Queue;
 
 /**
  * struct binary_tree_s - Binary tree node
@@ -43,6 +23,28 @@ typedef struct binary_tree_s binary_tree_t;
 typedef struct binary_tree_s bst_t;
 typedef struct binary_tree_s avl_t;
 typedef struct binary_tree_s heap_t;
+/**
+ * struct queue_s - Queue structure
+ * @node: Pointer to a binary tree node
+ * @next: Pointer to the next node in the queue
+ */
+typedef struct queue_s
+{
+	binary_tree_t *node;
+	struct queue_s *next;
+} queue_t;
+
+/**
+ * struct Queue_u - Queue structure
+ * @front: Pointer to the front of the queue
+ * @rear: Pointer to the rear of the queue
+ */
+typedef struct Queue_u
+{
+	queue_t *front;
+	queue_t *rear;
+} Queue_t;
+
 void binary_tree_print(const binary_tree_t *);
 
 /**
@@ -187,4 +189,9 @@ const binary_tree_t *second);
  * The value in the node must be passed as a parameter to this function.
 */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+/**
+ * binary_tree_is_complete - checks if a binary tree is complete
+ * @tree: pointer to the root node of the tree to check
+*/
+int binary_tree_is_complete(const binary_tree_t *tree);
 #endif
