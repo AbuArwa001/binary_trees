@@ -1,6 +1,5 @@
 #include "binary_trees.h"
 #include "101-binary_tree_levelorder.c"
-#include <stdio.h>
 
 /**
  * enqueue - Adds a node to the rear of the queue
