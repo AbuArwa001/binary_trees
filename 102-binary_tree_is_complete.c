@@ -122,7 +122,6 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 
 	while (fr->rear)
 	{
-
 		binary_tree_t *pr = dequeue(fr);
 
 		if (!pr)
@@ -137,10 +136,12 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 			}
 	}
 	if ((!fr->front && !fr->rear) && flg == -1)
-		return (1);
-	if (flg == 0)
 	{
-		return (0);
+		free(fr);
+		return (1);
 	}
+	free(fr);
+	if (flg == 0)
+		return (0);
 	return (1);
 }
