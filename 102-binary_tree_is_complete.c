@@ -110,38 +110,38 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 
 	if (!tree)
 		return (0);
-
-
-
 	if (!fr)
 		return (0);
-
-	fr->front = NULL;
-	fr->rear = NULL;
+	fr->front = fr->rear = NULL;
 	levelOrder(tree,  &q, fr);
-
 	while (fr->rear)
 	{
 		binary_tree_t *pr = dequeue(fr);
 
 		if (!pr)
-		{
 			flg = 1;
+		else if (flg == 1 && pr)
+		{
+			flg = 0;
+			break;
 		}
-		else
-			if (flg == 1 && pr)
-			{
-				flg = 0;
-				break;
-			}
 	}
 	if ((!fr->front && !fr->rear) && flg == -1)
 	{
 		free(fr);
 		return (1);
 	}
+	if (fr->front && fr->rear)
+	{
+		while (fr->front)
+		{
+			queue_t *temp = fr->front;
+
+			fr->front = fr->front->next;
+			free(temp);
+		}
+	}
 	free(fr);
-	if (flg == 0)
-		return (0);
-	return (1);
+	flg = (flg == 0) ? 0 : 1;
+	return (flg);
 }
