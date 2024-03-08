@@ -207,4 +207,10 @@ binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
  * Return: return the new sub tree root
 */
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
+/**
+ * binary_tree_is_bst - checks if a binary tree is a valid Binary Search Tree
+ * @tree: tree to be checked
+ * Return: returns 1 if true 0 if false;
+*/
+int binary_tree_is_bst(const binary_tree_t *tree);
 #endif
