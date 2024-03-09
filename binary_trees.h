@@ -1,7 +1,7 @@
 #ifndef BINARY_TREES
 #define BINARY_TREES
-
-
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * struct binary_tree_s - Binary tree node
@@ -91,7 +91,6 @@ int binary_tree_is_leaf(const binary_tree_t *node);
  * Return: return 1 if node is leaf otherwise 0
 */
 int binary_tree_is_root(const binary_tree_t *node);
-#include <stdlib.h>
 /**
  * binary_tree_preorder - goes through binary tree using pre-order
  * @tree: pointer to the root node of the tree to travers
@@ -213,4 +212,11 @@ binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
  * Return: returns 1 if true 0 if false;
 */
 int binary_tree_is_bst(const binary_tree_t *tree);
+/**
+ * bst_insert - a function that inserts a value in a Binary Search Tree
+ * @tree: is a double pointer to the root node of the BST to insert the value
+ * @value: is the value to store in the node to be inserted
+ * Return: return a pointer to the created node, or NULL on failure
+*/
+bst_t *bst_insert(bst_t **tree, int value);
 #endif
