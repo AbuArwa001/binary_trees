@@ -64,10 +64,5 @@ bst_t *bst_insert(bst_t **tree, int value)
 	}
 
 	node = insert_bst(tree, value);
-
-	if (!node)
-	{
-		printf("NULL");
-	}
 	return (node != NULL ? node : NULL);
 }
